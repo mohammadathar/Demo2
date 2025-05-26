@@ -24,16 +24,4 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(e.getHttpStatus()).body(errorDetails);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorDetails> handleGlobalException(Exception ex, HttpServletRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(
-                LocalDateTime.now(),
-                ex.getMessage(),
-                "Nahi mila",
-                500,
-                request.getRequestURI()
-        );
-        return ResponseEntity.status(500).body(errorDetails);
-    }
-
 }
